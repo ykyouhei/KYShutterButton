@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" tag="2" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wof-ss-goG" customClass="KYShutterButton" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="207" y="341" width="66" height="66"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="eVG-93-e3U"/>
+                                    <constraint firstAttribute="height" constant="66" id="ucj-OH-9c7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="leA-S8-qiS"/>
+                                </connections>
+                            </view>
+                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="meG-bf-4Ng" customClass="KYShutterButton" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="327" y="193" width="66" height="66"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="R2e-NJ-Fjz"/>
+                                    <constraint firstAttribute="height" constant="66" id="Ybl-XI-2iS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="0.93333333333333335" green="0.10196078431372549" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FxP-wM-8Bq"/>
+                                </connections>
+                            </view>
+                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QB4-xJ-cL5" customClass="KYShutterButton" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="327" y="341" width="66" height="66"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="MWf-av-HjP"/>
+                                    <constraint firstAttribute="height" constant="66" id="f9G-Ki-o28"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="JmT-BP-jlX"/>
+                                </connections>
+                            </view>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNQ-m8-476" customClass="KYShutterButton" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="207" y="193" width="66" height="66"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="dkn-QN-q5z"/>
+                                    <constraint firstAttribute="height" constant="66" id="gdG-Qq-wce"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-gX-Jjg">
+                                <rect key="frame" x="212" y="167" width="56" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="8G4-hC-ynV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SlowMotion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyo-t1-wRt">
+                                <rect key="frame" x="194" y="312" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJI-xC-1fI">
+                                <rect key="frame" x="332" y="167" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeLapse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddw-6t-YUQ">
+                                <rect key="frame" x="318" y="312" width="85" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="yss-Rm-joq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1up-oe-NtX" customClass="KYShutterButton" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="100" height="100"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="0.94645378020000004" blue="0.2725811977" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ddw-6t-YUQ" firstAttribute="centerX" secondItem="QB4-xJ-cL5" secondAttribute="centerX" id="9pd-Mc-pwi"/>
+                            <constraint firstItem="zJI-xC-1fI" firstAttribute="centerX" secondItem="meG-bf-4Ng" secondAttribute="centerX" id="BQ4-Wj-ko3"/>
+                            <constraint firstAttribute="centerY" secondItem="meG-bf-4Ng" secondAttribute="centerY" constant="74" id="CPM-yg-05H"/>
+                            <constraint firstAttribute="centerY" secondItem="QB4-xJ-cL5" secondAttribute="centerY" constant="-74" id="EwA-Fv-q5S"/>
+                            <constraint firstItem="zJI-xC-1fI" firstAttribute="baseline" secondItem="jDE-gX-Jjg" secondAttribute="baseline" id="Gs4-Vc-vUz"/>
+                            <constraint firstAttribute="centerX" secondItem="QB4-xJ-cL5" secondAttribute="centerX" constant="-60" id="IyZ-2q-hw1"/>
+                            <constraint firstAttribute="centerX" secondItem="cNQ-m8-476" secondAttribute="centerX" constant="60" id="JHY-WL-9S8"/>
+                            <constraint firstItem="cNQ-m8-476" firstAttribute="top" secondItem="jDE-gX-Jjg" secondAttribute="bottom" constant="5" id="KID-j0-b6g"/>
+                            <constraint firstItem="ddw-6t-YUQ" firstAttribute="baseline" secondItem="Pyo-t1-wRt" secondAttribute="baseline" id="LFi-2t-Fxc"/>
+                            <constraint firstAttribute="centerY" secondItem="cNQ-m8-476" secondAttribute="centerY" constant="74" id="TXi-id-HMm"/>
+                            <constraint firstAttribute="centerX" secondItem="wof-ss-goG" secondAttribute="centerX" constant="60" id="Wri-7S-52b"/>
+                            <constraint firstAttribute="centerX" secondItem="meG-bf-4Ng" secondAttribute="centerX" constant="-60" id="akl-7G-K3F"/>
+                            <constraint firstAttribute="centerY" secondItem="wof-ss-goG" secondAttribute="centerY" constant="-74" id="ca1-dh-hym"/>
+                            <constraint firstItem="wof-ss-goG" firstAttribute="top" secondItem="Pyo-t1-wRt" secondAttribute="bottom" constant="8" symbolic="YES" id="eRd-Oq-5Ew"/>
+                            <constraint firstItem="Pyo-t1-wRt" firstAttribute="centerX" secondItem="wof-ss-goG" secondAttribute="centerX" id="jJy-ht-4dt"/>
+                            <constraint firstItem="jDE-gX-Jjg" firstAttribute="centerX" secondItem="cNQ-m8-476" secondAttribute="centerX" id="n0l-Fe-zu6"/>
+                            <constraint firstItem="zJI-xC-1fI" firstAttribute="leading" secondItem="jDE-gX-Jjg" secondAttribute="trailing" constant="64" id="rv5-Rs-tQM"/>
+                            <constraint firstItem="ddw-6t-YUQ" firstAttribute="leading" secondItem="Pyo-t1-wRt" secondAttribute="trailing" constant="32" id="swh-r9-Ll8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="267"/>
+        </scene>
+    </scenes>
+</document>

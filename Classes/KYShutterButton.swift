@@ -278,6 +278,10 @@ public class KYShutterButton: UIButton {
         }
     }
     
+    public override func setTitle(title: String?, forState state: UIControlState) {
+        super.setTitle("", forState: state)
+    }
+    
     /**************************************************************************/
     // MARK: - Method
     /**************************************************************************/

@@ -53,7 +53,7 @@ public class KYShutterButton: UIButton {
     
     @IBInspectable public var buttonColor: UIColor = UIColor.redColor() {
         didSet {
-            _circleLayer.backgroundColor = buttonColor.CGColor
+            _circleLayer.fillColor = buttonColor.CGColor
         }
     }
     

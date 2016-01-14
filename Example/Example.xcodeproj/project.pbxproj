@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410B23511C47E43B0078A5A0 /* KYShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B23501C47E43B0078A5A0 /* KYShutterButton.swift */; };
 		419E22DE1B2D85CF00DA0E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E22DD1B2D85CF00DA0E57 /* AppDelegate.swift */; };
 		419E22E01B2D85CF00DA0E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E22DF1B2D85CF00DA0E57 /* ViewController.swift */; };
 		419E22E31B2D85CF00DA0E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419E22E11B2D85CF00DA0E57 /* Main.storyboard */; };
 		419E22E51B2D85CF00DA0E57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419E22E41B2D85CF00DA0E57 /* Images.xcassets */; };
 		419E22E81B2D85CF00DA0E57 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419E22E61B2D85CF00DA0E57 /* LaunchScreen.xib */; };
 		419E22F41B2D85CF00DA0E57 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E22F31B2D85CF00DA0E57 /* ExampleTests.swift */; };
-		419E22FF1B2D861400DA0E57 /* KYShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419E22FE1B2D861400DA0E57 /* KYShutterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		410B23501C47E43B0078A5A0 /* KYShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KYShutterButton.swift; path = ../KYShutterButton/Classes/KYShutterButton.swift; sourceTree = "<group>"; };
 		419E22D81B2D85CF00DA0E57 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		419E22DC1B2D85CF00DA0E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419E22DD1B2D85CF00DA0E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		419E22ED1B2D85CF00DA0E57 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		419E22F21B2D85CF00DA0E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419E22F31B2D85CF00DA0E57 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		419E22FE1B2D861400DA0E57 /* KYShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYShutterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		419E22FD1B2D85D800DA0E57 /* KYShutterButton */ = {
 			isa = PBXGroup;
 			children = (
-				419E22FE1B2D861400DA0E57 /* KYShutterButton.swift */,
+				410B23501C47E43B0078A5A0 /* KYShutterButton.swift */,
 			);
 			name = KYShutterButton;
 			path = ../../Classes;
@@ -168,6 +168,7 @@
 		419E22D01B2D85CF00DA0E57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Kyouhei Yamaguchi";
 				TargetAttributes = {
@@ -224,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				419E22FF1B2D861400DA0E57 /* KYShutterButton.swift in Sources */,
+				410B23511C47E43B0078A5A0 /* KYShutterButton.swift in Sources */,
 				419E22E01B2D85CF00DA0E57 /* ViewController.swift in Sources */,
 				419E22DE1B2D85CF00DA0E57 /* AppDelegate.swift in Sources */,
 			);
@@ -422,6 +423,7 @@
 				419E22F91B2D85CF00DA0E57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		419E22FA1B2D85CF00DA0E57 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +432,7 @@
 				419E22FC1B2D85CF00DA0E57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

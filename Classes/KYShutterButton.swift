@@ -24,13 +24,16 @@ SOFTWARE.
 
 import UIKit
 
+@objc
 @IBDesignable
 public class KYShutterButton: UIButton {
     
+    @objc
     public enum ShutterType: Int {
         case Normal, SlowMotion, TimeLapse
     }
     
+    @objc
     public enum ButtonState: Int {
         case Normal, Recording
     }
@@ -38,9 +41,10 @@ public class KYShutterButton: UIButton {
     private let _kstartAnimateDuration: CFTimeInterval = 0.5
     
     /**************************************************************************/
-    // MARK: - Properties
-    /**************************************************************************/
+     // MARK: - Properties
+     /**************************************************************************/
     
+    @objc
     @IBInspectable var typeRaw: Int = 0 {
         didSet {
             if let type = ShutterType(rawValue: typeRaw) {
@@ -51,18 +55,21 @@ public class KYShutterButton: UIButton {
         }
     }
     
+    @objc
     @IBInspectable public var buttonColor: UIColor = UIColor.redColor() {
         didSet {
             _circleLayer.fillColor = buttonColor.CGColor
         }
     }
     
+    @objc
     @IBInspectable public var arcColor: UIColor = UIColor.whiteColor() {
         didSet {
             _arcLayer.strokeColor = arcColor.CGColor
         }
     }
     
+    @objc
     @IBInspectable public var progressColor: UIColor = UIColor.whiteColor() {
         didSet {
             _progressLayer.strokeColor = progressColor.CGColor
@@ -70,6 +77,7 @@ public class KYShutterButton: UIButton {
         }
     }
     
+    @objc
     public var buttonState: ButtonState = .Normal {
         didSet {
             let animation = CABasicAnimation(keyPath: "path")
@@ -100,6 +108,7 @@ public class KYShutterButton: UIButton {
         }
     }
     
+    @objc
     public var shutterType: ShutterType  = .Normal {
         didSet {
             switch shutterType {
@@ -243,9 +252,10 @@ public class KYShutterButton: UIButton {
     
     
     /**************************************************************************/
-    // MARK: - initialize
-    /**************************************************************************/
+     // MARK: - initialize
+     /**************************************************************************/
     
+    @objc
     public convenience init(frame: CGRect, shutterType: ShutterType, buttonColor: UIColor) {
         self.init(frame: frame)
         self.shutterType = shutterType
@@ -253,15 +263,17 @@ public class KYShutterButton: UIButton {
     }
     
     /**************************************************************************/
-    // MARK: - Override
-    /**************************************************************************/
+     // MARK: - Override
+     /**************************************************************************/
     
+    @objc
     override public var highlighted: Bool {
         didSet {
             _circleLayer.opacity = highlighted ? 0.5 : 1.0
         }
     }
     
+    @objc
     public override func layoutSubviews() {
         super.layoutSubviews()
         if _arcLayer.superlayer != layer {
@@ -278,13 +290,14 @@ public class KYShutterButton: UIButton {
         }
     }
     
+    @objc
     public override func setTitle(title: String?, forState state: UIControlState) {
         super.setTitle("", forState: state)
     }
     
     /**************************************************************************/
-    // MARK: - Method
-    /**************************************************************************/
+     // MARK: - Method
+     /**************************************************************************/
     
     private func p_arcPathWithProgress(progress: CGFloat, clockwise: Bool = true) -> UIBezierPath {
         let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
@@ -303,5 +316,5 @@ public class KYShutterButton: UIButton {
         )
         return path
     }
-
+    
 }

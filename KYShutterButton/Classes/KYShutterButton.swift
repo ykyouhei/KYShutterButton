@@ -78,6 +78,14 @@ public class KYShutterButton: UIButton {
     }
     
     @objc
+    @IBInspectable public var rotateAnimateDuration: Float = 5 {
+        didSet {
+            _recordingRotateAnimation.duration = NSTimeInterval(rotateAnimateDuration)
+            _recordingAnimation.duration       = NSTimeInterval(rotateAnimateDuration*2)
+        }
+    }
+    
+    @objc
     public var buttonState: ButtonState = .Normal {
         didSet {
             let animation = CABasicAnimation(keyPath: "path")
@@ -232,7 +240,7 @@ public class KYShutterButton: UIButton {
             paths.append(self.p_arcPathWithProgress(animationProgress, clockwise: false).CGPath)
         }
         let animation         = CAKeyframeAnimation(keyPath: "path")
-        animation.duration    = 10
+        animation.duration    = NSTimeInterval(rotateAnimateDuration*2)
         animation.values      = paths
         animation.beginTime   = CACurrentMediaTime() + _kstartAnimateDuration
         animation.repeatCount = Float.infinity
@@ -244,7 +252,7 @@ public class KYShutterButton: UIButton {
         let animation         = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue   = 0
         animation.toValue     = CGFloat(M_PI*2.0)
-        animation.duration    = 5
+        animation.duration    = NSTimeInterval(rotateAnimateDuration)
         animation.repeatCount = Float.infinity
         animation.beginTime   = CACurrentMediaTime() + _kstartAnimateDuration
         return animation

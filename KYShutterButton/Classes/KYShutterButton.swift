@@ -95,8 +95,7 @@ public class KYShutterButton: UIButton {
             switch buttonState {
             case .Normal:
                 if shutterType == .TimeLapse {
-                    _progressLayer.removeAllAnimations()
-                    _rotateLayer.removeAllAnimations()
+                    p_removeTimeLapseAnimations()
                 }
                 animation.toValue = _circlePath.CGPath
                 _circleLayer.addAnimation(animation, forKey: "path-anim")
@@ -106,11 +105,7 @@ public class KYShutterButton: UIButton {
                 _circleLayer.addAnimation(animation, forKey: "path-anim")
                 _circleLayer.path = _roundRectPath.CGPath
                 if shutterType == .TimeLapse {
-                    _progressLayer.addAnimation(_startProgressAnimation, forKey: "start-anim")
-                    _rotateLayer.addAnimation(_startRotateAnimation, forKey: "rotate-anim")
-                    _progressLayer.addAnimation(_recordingAnimation, forKey: "recording-anim")
-                    _rotateLayer.addAnimation(_recordingRotateAnimation, forKey: "recordingRotate-anim")
-                    _progressLayer.path = p_arcPathWithProgress(1.0).CGPath
+                    p_addTimeLapseAnimations()
                 }
             }
         }
@@ -179,12 +174,9 @@ public class KYShutterButton: UIButton {
     
     lazy private var _rotateLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        let subPath = UIBezierPath()
-        subPath.moveToPoint(CGPointMake(self.bounds.width/2, 0))
-        subPath.addLineToPoint(CGPointMake(self.bounds.width/2, self._arcWidth))
         layer.strokeColor = self.progressColor.CGColor
         layer.lineWidth   = 1
-        layer.path        = subPath.CGPath
+        layer.path        = self._rotatePath.CGPath
         layer.frame       = self.bounds
         return layer
     }()
@@ -197,12 +189,29 @@ public class KYShutterButton: UIButton {
         )
     }
     
+    private var _arcPath: UIBezierPath {
+        return UIBezierPath(
+            arcCenter: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)),
+            radius: self.bounds.width/2 - self._arcWidth/2,
+            startAngle: -CGFloat(M_PI_2),
+            endAngle: CGFloat(M_PI*2.0) - CGFloat(M_PI_2),
+            clockwise: true
+        )
+    }
+    
     private var _roundRectPath: UIBezierPath {
         let side = bounds.width * 0.4242
         return UIBezierPath(
             roundedRect: CGRectMake(bounds.width/2 - side/2, bounds.width/2 - side/2, side, side),
             cornerRadius: side * 0.107
         )
+    }
+    
+    private var _rotatePath: UIBezierPath {
+        let path = UIBezierPath()
+        path.moveToPoint(CGPointMake(self.bounds.width/2, 0))
+        path.addLineToPoint(CGPointMake(self.bounds.width/2, self._arcWidth))
+        return path
     }
     
     private var _startProgressAnimation: CAKeyframeAnimation {
@@ -286,15 +295,35 @@ public class KYShutterButton: UIButton {
         super.layoutSubviews()
         if _arcLayer.superlayer != layer {
             layer.addSublayer(_arcLayer)
+        } else {
+            _arcLayer.path = _arcPath.CGPath
         }
+        
         if _progressLayer.superlayer != layer {
             layer.addSublayer(_progressLayer)
+        } else {
+            _progressLayer.path = p_arcPathWithProgress(1).CGPath
         }
+        
         if _rotateLayer.superlayer != layer {
             layer.insertSublayer(_rotateLayer, atIndex: 0)
+        } else {
+            _rotateLayer.path  = _rotatePath.CGPath
+            _rotateLayer.frame = self.bounds
         }
+        
         if _circleLayer.superlayer != layer {
             layer.addSublayer(_circleLayer)
+        } else {
+            switch buttonState {
+            case .Normal:    _circleLayer.path = _circlePath.CGPath
+            case .Recording: _circleLayer.path = _roundRectPath.CGPath
+            }
+        }
+        
+        if shutterType == .TimeLapse && buttonState == .Recording {
+            p_removeTimeLapseAnimations()
+            p_addTimeLapseAnimations()
         }
     }
     
@@ -306,6 +335,19 @@ public class KYShutterButton: UIButton {
     /**************************************************************************/
      // MARK: - Method
      /**************************************************************************/
+    
+    private func p_addTimeLapseAnimations() {
+        _progressLayer.addAnimation(_startProgressAnimation, forKey: "start-anim")
+        _rotateLayer.addAnimation(_startRotateAnimation, forKey: "rotate-anim")
+        _progressLayer.addAnimation(_recordingAnimation, forKey: "recording-anim")
+        _rotateLayer.addAnimation(_recordingRotateAnimation, forKey: "recordingRotate-anim")
+        _progressLayer.path = p_arcPathWithProgress(1.0).CGPath
+    }
+    
+    private func p_removeTimeLapseAnimations() {
+        _progressLayer.removeAllAnimations()
+        _rotateLayer.removeAllAnimations()
+    }
     
     private func p_arcPathWithProgress(progress: CGFloat, clockwise: Bool = true) -> UIBezierPath {
         let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)

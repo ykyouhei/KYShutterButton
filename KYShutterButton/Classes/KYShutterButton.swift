@@ -146,14 +146,7 @@ public class KYShutterButton: UIButton {
     
     lazy private var _arcLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        let path  = UIBezierPath(
-            arcCenter: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)),
-            radius: self.bounds.width/2 - self._arcWidth/2,
-            startAngle: -CGFloat(M_PI_2),
-            endAngle: CGFloat(M_PI*2.0) - CGFloat(M_PI_2),
-            clockwise: true
-        )
-        layer.path        = path.CGPath
+        layer.path        = self._arcPath.CGPath
         layer.fillColor   = UIColor.clearColor().CGColor
         layer.strokeColor = self.arcColor.CGColor
         layer.lineWidth   = self._arcWidth
@@ -296,13 +289,15 @@ public class KYShutterButton: UIButton {
         if _arcLayer.superlayer != layer {
             layer.addSublayer(_arcLayer)
         } else {
-            _arcLayer.path = _arcPath.CGPath
+            _arcLayer.path      = _arcPath.CGPath
+            _arcLayer.lineWidth = _arcWidth
         }
         
         if _progressLayer.superlayer != layer {
             layer.addSublayer(_progressLayer)
         } else {
-            _progressLayer.path = p_arcPathWithProgress(1).CGPath
+            _progressLayer.path      = p_arcPathWithProgress(1).CGPath
+            _progressLayer.lineWidth = _arcWidth/1.5
         }
         
         if _rotateLayer.superlayer != layer {

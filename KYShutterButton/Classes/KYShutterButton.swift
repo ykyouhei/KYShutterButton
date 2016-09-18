@@ -145,8 +145,6 @@ open class KYShutterButton: UIButton {
     lazy private var _progressLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         let path  = self.p_arcPathWithProgress(1.0, clockwise: true)
-        let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
-        layer.lineDashPattern = [1, NSNumber(floatLiteral: (diameter/60 - 1).native)]
         layer.path            = path.cgPath
         layer.fillColor       = UIColor.clear.cgColor
         layer.strokeColor     = self.progressColor.cgColor
@@ -365,8 +363,8 @@ open class KYShutterButton: UIButton {
             let diameter = CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/2)
             let progressDiameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
             
-            _arcLayer.lineDashPattern = [1, NSNumber(floatLiteral: (diameter/10 - 1).native)]
-            _progressLayer.lineDashPattern = [1, NSNumber(floatLiteral: (progressDiameter/60 - 1).native)]
+            _arcLayer.lineDashPattern = [1, NSNumber(value: (diameter/10 - 1).native)]
+            _progressLayer.lineDashPattern = [1, NSNumber(value: (progressDiameter/60 - 1).native)]
             _progressLayer.isHidden     = false
         }
     }

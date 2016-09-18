@@ -9,13 +9,51 @@
 /* Begin PBXBuildFile section */
 		410B23461C47E2E30078A5A0 /* KYShutterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 410B23451C47E2E30078A5A0 /* KYShutterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		410B234F1C47E3D00078A5A0 /* KYShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B234E1C47E3D00078A5A0 /* KYShutterButton.swift */; };
+		4159763A1D8E805F0007ACF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415976391D8E805F0007ACF7 /* AppDelegate.swift */; };
+		4159763C1D8E805F0007ACF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4159763B1D8E805F0007ACF7 /* ViewController.swift */; };
+		4159763F1D8E805F0007ACF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4159763D1D8E805F0007ACF7 /* Main.storyboard */; };
+		415976411D8E805F0007ACF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415976401D8E805F0007ACF7 /* Assets.xcassets */; };
+		415976441D8E805F0007ACF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415976421D8E805F0007ACF7 /* LaunchScreen.storyboard */; };
+		41AF6C201D8E811100A45CFE /* KYShutterButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410B23421C47E2E30078A5A0 /* KYShutterButton.framework */; };
+		41AF6C211D8E811100A45CFE /* KYShutterButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 410B23421C47E2E30078A5A0 /* KYShutterButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41AF6C221D8E811100A45CFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 410B23391C47E2E30078A5A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 410B23411C47E2E30078A5A0;
+			remoteInfo = KYShutterButton;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		41AF6C241D8E811100A45CFE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				41AF6C211D8E811100A45CFE /* KYShutterButton.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		410B23421C47E2E30078A5A0 /* KYShutterButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KYShutterButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		410B23451C47E2E30078A5A0 /* KYShutterButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYShutterButton.h; sourceTree = "<group>"; };
 		410B23471C47E2E30078A5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		410B234E1C47E3D00078A5A0 /* KYShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYShutterButton.swift; sourceTree = "<group>"; };
+		415976371D8E805E0007ACF7 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		415976391D8E805F0007ACF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4159763B1D8E805F0007ACF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4159763E1D8E805F0007ACF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		415976401D8E805F0007ACF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		415976431D8E805F0007ACF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		415976451D8E805F0007ACF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +64,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		415976341D8E805E0007ACF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41AF6C201D8E811100A45CFE /* KYShutterButton.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				410B23441C47E2E30078A5A0 /* KYShutterButton */,
+				415976381D8E805F0007ACF7 /* Example */,
 				410B23431C47E2E30078A5A0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				410B23421C47E2E30078A5A0 /* KYShutterButton.framework */,
+				415976371D8E805E0007ACF7 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +109,19 @@
 				410B234E1C47E3D00078A5A0 /* KYShutterButton.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		415976381D8E805F0007ACF7 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				415976391D8E805F0007ACF7 /* AppDelegate.swift */,
+				4159763B1D8E805F0007ACF7 /* ViewController.swift */,
+				4159763D1D8E805F0007ACF7 /* Main.storyboard */,
+				415976401D8E805F0007ACF7 /* Assets.xcassets */,
+				415976421D8E805F0007ACF7 /* LaunchScreen.storyboard */,
+				415976451D8E805F0007ACF7 /* Info.plist */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,18 +156,42 @@
 			productReference = 410B23421C47E2E30078A5A0 /* KYShutterButton.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		415976361D8E805E0007ACF7 /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 415976481D8E805F0007ACF7 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				415976331D8E805E0007ACF7 /* Sources */,
+				415976341D8E805E0007ACF7 /* Frameworks */,
+				415976351D8E805E0007ACF7 /* Resources */,
+				41AF6C241D8E811100A45CFE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41AF6C231D8E811100A45CFE /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = 415976371D8E805E0007ACF7 /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		410B23391C47E2E30078A5A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = kyo__hei;
 				TargetAttributes = {
 					410B23411C47E2E30078A5A0 = {
 						CreatedOnToolsVersion = 7.2;
 						LastSwiftMigration = 0800;
+					};
+					415976361D8E805E0007ACF7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -116,6 +201,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 410B23381C47E2E30078A5A0;
 			productRefGroup = 410B23431C47E2E30078A5A0 /* Products */;
@@ -123,6 +209,7 @@
 			projectRoot = "";
 			targets = (
 				410B23411C47E2E30078A5A0 /* KYShutterButton */,
+				415976361D8E805E0007ACF7 /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -132,6 +219,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415976351D8E805E0007ACF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				415976441D8E805F0007ACF7 /* LaunchScreen.storyboard in Resources */,
+				415976411D8E805F0007ACF7 /* Assets.xcassets in Resources */,
+				4159763F1D8E805F0007ACF7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +243,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		415976331D8E805E0007ACF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4159763C1D8E805F0007ACF7 /* ViewController.swift in Sources */,
+				4159763A1D8E805F0007ACF7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41AF6C231D8E811100A45CFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 410B23411C47E2E30078A5A0 /* KYShutterButton */;
+			targetProxy = 41AF6C221D8E811100A45CFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4159763D1D8E805F0007ACF7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4159763E1D8E805F0007ACF7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		415976421D8E805F0007ACF7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				415976431D8E805F0007ACF7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		410B23481C47E2E30078A5A0 /* Debug */ = {
@@ -249,6 +382,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -269,6 +403,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -279,6 +414,45 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		415976461D8E805F0007ACF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		415976471D8E805F0007ACF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kyo--hei.Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -299,6 +473,15 @@
 			buildConfigurations = (
 				410B234B1C47E2E30078A5A0 /* Debug */,
 				410B234C1C47E2E30078A5A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		415976481D8E805F0007ACF7 /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				415976461D8E805F0007ACF7 /* Debug */,
+				415976471D8E805F0007ACF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

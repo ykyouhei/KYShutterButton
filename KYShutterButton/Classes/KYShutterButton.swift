@@ -114,18 +114,7 @@ open class KYShutterButton: UIButton {
     @objc
     public var shutterType: ShutterType  = .normal {
         didSet {
-            switch shutterType {
-            case .normal:
-                _arcLayer.lineDashPattern = nil
-                _progressLayer.isHidden     = true
-            case .slowMotion:
-                _arcLayer.lineDashPattern = [1, 1]
-                _progressLayer.isHidden     = true
-            case .timeLapse:
-                let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/2)
-                _arcLayer.lineDashPattern = [1, NSNumber(floatLiteral: (diameter/10 - 1).native)]
-                _progressLayer.isHidden     = false
-            }
+            updateLayers()
         }
     }
     
@@ -320,6 +309,8 @@ open class KYShutterButton: UIButton {
             p_removeTimeLapseAnimations()
             p_addTimeLapseAnimations()
         }
+        
+        updateLayers()
     }
     
     @objc
@@ -360,6 +351,24 @@ open class KYShutterButton: UIButton {
             clockwise: clockwise
         )
         return path
+    }
+    
+    private func updateLayers() {
+        switch shutterType {
+        case .normal:
+            _arcLayer.lineDashPattern = nil
+            _progressLayer.isHidden     = true
+        case .slowMotion:
+            _arcLayer.lineDashPattern = [1, 1]
+            _progressLayer.isHidden     = true
+        case .timeLapse:
+            let diameter = CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/2)
+            let progressDiameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
+            
+            _arcLayer.lineDashPattern = [1, NSNumber(floatLiteral: (diameter/10 - 1).native)]
+            _progressLayer.lineDashPattern = [1, NSNumber(floatLiteral: (progressDiameter/60 - 1).native)]
+            _progressLayer.isHidden     = false
+        }
     }
     
 }

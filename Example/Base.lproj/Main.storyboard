@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1zI-So-CCp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="1FE-Jy-hqO">
+            <objects>
+                <viewController id="1zI-So-CCp" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7F2-sJ-sPL"/>
+                        <viewControllerLayoutGuide type="bottom" id="TbV-J3-2F9"/>
+                    </layoutGuides>
+                    <view key="view" tag="2" contentMode="scaleToFill" id="oGk-6h-2Kb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptD-fV-BOO" customClass="KYShutterButton" customModule="KYShutterButton">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="ERC-xB-Viu"/>
+                                    <constraint firstAttribute="height" constant="66" id="QDo-q4-YsH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapButton:" destination="1zI-So-CCp" eventType="touchUpInside" id="Lds-NV-WdX"/>
+                                </connections>
+                            </view>
+                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbb-QT-tAI" customClass="KYShutterButton" customModule="KYShutterButton">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="6rY-DD-cVE"/>
+                                    <constraint firstAttribute="height" constant="66" id="k4C-9g-k8C"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="0.93333333330000001" green="0.1019607843" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapButton:" destination="1zI-So-CCp" eventType="touchUpInside" id="1wU-tz-dWe"/>
+                                </connections>
+                            </view>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLP-je-VrZ" customClass="KYShutterButton" customModule="KYShutterButton">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="Xc4-BE-Thk"/>
+                                    <constraint firstAttribute="width" constant="66" id="j7V-Vn-Egu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rotateAnimateDuration">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapButton:" destination="1zI-So-CCp" eventType="touchUpInside" id="MVl-Aj-gFf"/>
+                                </connections>
+                            </view>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-Iv-Kcs" customClass="KYShutterButton" customModule="KYShutterButton">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="1nr-Kg-YBL"/>
+                                    <constraint firstAttribute="width" constant="66" id="wp5-Zg-fXL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="typeRaw">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJU-SA-GY2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="PgG-H7-oNA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SlowMotion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fva-pz-owc">
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLI-ZD-Cdd">
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeLapse" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBT-ji-BYE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="gM8-zq-vZ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v1X-Iv-Kcs" firstAttribute="top" secondItem="sJU-SA-GY2" secondAttribute="bottom" constant="5" id="2gC-uM-aNe"/>
+                            <constraint firstAttribute="centerX" secondItem="v1X-Iv-Kcs" secondAttribute="centerX" constant="60" id="2jI-eg-zy3"/>
+                            <constraint firstItem="GLI-ZD-Cdd" firstAttribute="leading" secondItem="sJU-SA-GY2" secondAttribute="trailing" constant="64" id="5cn-Cc-obZ"/>
+                            <constraint firstAttribute="centerY" secondItem="Vbb-QT-tAI" secondAttribute="centerY" constant="74" id="CDa-TY-MPw"/>
+                            <constraint firstItem="GLI-ZD-Cdd" firstAttribute="centerX" secondItem="Vbb-QT-tAI" secondAttribute="centerX" id="FCv-UP-S9R"/>
+                            <constraint firstAttribute="centerX" secondItem="ptD-fV-BOO" secondAttribute="centerX" constant="60" id="HRd-S0-4jX"/>
+                            <constraint firstItem="sJU-SA-GY2" firstAttribute="centerX" secondItem="v1X-Iv-Kcs" secondAttribute="centerX" id="Oy9-RF-evD"/>
+                            <constraint firstAttribute="centerY" secondItem="aLP-je-VrZ" secondAttribute="centerY" constant="-74" id="PtA-i3-T8D"/>
+                            <constraint firstItem="aBT-ji-BYE" firstAttribute="baseline" secondItem="Fva-pz-owc" secondAttribute="baseline" id="Q17-mV-r91"/>
+                            <constraint firstAttribute="centerY" secondItem="v1X-Iv-Kcs" secondAttribute="centerY" constant="74" id="b7N-tz-L7e"/>
+                            <constraint firstItem="Fva-pz-owc" firstAttribute="centerX" secondItem="ptD-fV-BOO" secondAttribute="centerX" id="cPp-xS-Tpj"/>
+                            <constraint firstAttribute="centerX" secondItem="Vbb-QT-tAI" secondAttribute="centerX" constant="-60" id="gCk-L6-HEq"/>
+                            <constraint firstItem="aBT-ji-BYE" firstAttribute="centerX" secondItem="aLP-je-VrZ" secondAttribute="centerX" id="hl2-Lo-5eh"/>
+                            <constraint firstAttribute="centerY" secondItem="ptD-fV-BOO" secondAttribute="centerY" constant="-74" id="pqc-z5-rRZ"/>
+                            <constraint firstItem="GLI-ZD-Cdd" firstAttribute="baseline" secondItem="sJU-SA-GY2" secondAttribute="baseline" id="sfW-fE-jA3"/>
+                            <constraint firstItem="ptD-fV-BOO" firstAttribute="top" secondItem="Fva-pz-owc" secondAttribute="bottom" constant="8" symbolic="YES" id="ujO-EQ-aEB"/>
+                            <constraint firstItem="aBT-ji-BYE" firstAttribute="leading" secondItem="Fva-pz-owc" secondAttribute="trailing" constant="32" id="wNW-mP-WDA"/>
+                            <constraint firstAttribute="centerX" secondItem="aLP-je-VrZ" secondAttribute="centerX" constant="-60" id="wSV-i1-4bf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Xx-Sj-Pwb" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="267"/>
+        </scene>
+    </scenes>
+</document>

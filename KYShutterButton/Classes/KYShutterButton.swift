@@ -26,16 +26,16 @@ import UIKit
 
 @objc
 @IBDesignable
-public class KYShutterButton: UIButton {
+open class KYShutterButton: UIButton {
     
     @objc
     public enum ShutterType: Int {
-        case Normal, SlowMotion, TimeLapse
+        case normal, slowMotion, timeLapse
     }
     
     @objc
     public enum ButtonState: Int {
-        case Normal, Recording
+        case normal, recording
     }
     
     private let _kstartAnimateDuration: CFTimeInterval = 0.5
@@ -50,61 +50,61 @@ public class KYShutterButton: UIButton {
             if let type = ShutterType(rawValue: typeRaw) {
                 self.shutterType = type
             } else {
-                self.shutterType = .Normal
+                self.shutterType = .normal
             }
         }
     }
     
     @objc
-    @IBInspectable public var buttonColor: UIColor = UIColor.redColor() {
+    @IBInspectable public var buttonColor: UIColor = UIColor.red {
         didSet {
-            _circleLayer.fillColor = buttonColor.CGColor
+            _circleLayer.fillColor = buttonColor.cgColor
         }
     }
     
     @objc
-    @IBInspectable public var arcColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var arcColor: UIColor = UIColor.white {
         didSet {
-            _arcLayer.strokeColor = arcColor.CGColor
+            _arcLayer.strokeColor = arcColor.cgColor
         }
     }
     
     @objc
-    @IBInspectable public var progressColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var progressColor: UIColor = UIColor.white {
         didSet {
-            _progressLayer.strokeColor = progressColor.CGColor
-            _rotateLayer.strokeColor   = progressColor.CGColor
+            _progressLayer.strokeColor = progressColor.cgColor
+            _rotateLayer.strokeColor   = progressColor.cgColor
         }
     }
     
     @objc
     @IBInspectable public var rotateAnimateDuration: Float = 5 {
         didSet {
-            _recordingRotateAnimation.duration = NSTimeInterval(rotateAnimateDuration)
-            _recordingAnimation.duration       = NSTimeInterval(rotateAnimateDuration*2)
+            _recordingRotateAnimation.duration = TimeInterval(rotateAnimateDuration)
+            _recordingAnimation.duration       = TimeInterval(rotateAnimateDuration*2)
         }
     }
     
     @objc
-    public var buttonState: ButtonState = .Normal {
+    public var buttonState: ButtonState = .normal {
         didSet {
             let animation = CABasicAnimation(keyPath: "path")
             animation.fromValue = _circleLayer.path
             animation.duration  = 0.15
             
             switch buttonState {
-            case .Normal:
-                if shutterType == .TimeLapse {
+            case .normal:
+                if shutterType == .timeLapse {
                     p_removeTimeLapseAnimations()
                 }
-                animation.toValue = _circlePath.CGPath
-                _circleLayer.addAnimation(animation, forKey: "path-anim")
-                _circleLayer.path = _circlePath.CGPath
-            case .Recording:
-                animation.toValue = _roundRectPath.CGPath
-                _circleLayer.addAnimation(animation, forKey: "path-anim")
-                _circleLayer.path = _roundRectPath.CGPath
-                if shutterType == .TimeLapse {
+                animation.toValue = _circlePath.cgPath
+                _circleLayer.add(animation, forKey: "path-anim")
+                _circleLayer.path = _circlePath.cgPath
+            case .recording:
+                animation.toValue = _roundRectPath.cgPath
+                _circleLayer.add(animation, forKey: "path-anim")
+                _circleLayer.path = _roundRectPath.cgPath
+                if shutterType == .timeLapse {
                     p_addTimeLapseAnimations()
                 }
             }
@@ -112,20 +112,9 @@ public class KYShutterButton: UIButton {
     }
     
     @objc
-    public var shutterType: ShutterType  = .Normal {
+    public var shutterType: ShutterType  = .normal {
         didSet {
-            switch shutterType {
-            case .Normal:
-                _arcLayer.lineDashPattern = nil
-                _progressLayer.hidden     = true
-            case .SlowMotion:
-                _arcLayer.lineDashPattern = [1, 1]
-                _progressLayer.hidden     = true
-            case .TimeLapse:
-                let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/2)
-                _arcLayer.lineDashPattern = [1, diameter/10 - 1]
-                _progressLayer.hidden     = false
-            }
+            updateLayers()
         }
     }
     
@@ -139,16 +128,16 @@ public class KYShutterButton: UIButton {
     
     lazy private var _circleLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.path      = self._circlePath.CGPath
-        layer.fillColor = self.buttonColor.CGColor
+        layer.path      = self._circlePath.cgPath
+        layer.fillColor = self.buttonColor.cgColor
         return layer
     }()
     
     lazy private var _arcLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.path        = self._arcPath.CGPath
-        layer.fillColor   = UIColor.clearColor().CGColor
-        layer.strokeColor = self.arcColor.CGColor
+        layer.path        = self._arcPath.cgPath
+        layer.fillColor   = UIColor.clear.cgColor
+        layer.strokeColor = self.arcColor.cgColor
         layer.lineWidth   = self._arcWidth
         return layer
     }()
@@ -157,19 +146,19 @@ public class KYShutterButton: UIButton {
         let layer = CAShapeLayer()
         let path  = self.p_arcPathWithProgress(1.0, clockwise: true)
         let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
-        layer.lineDashPattern = [1, diameter/60 - 1]
-        layer.path            = path.CGPath
-        layer.fillColor       = UIColor.clearColor().CGColor
-        layer.strokeColor     = self.progressColor.CGColor
+        layer.lineDashPattern = [1, NSNumber(floatLiteral: (diameter/60 - 1).native)]
+        layer.path            = path.cgPath
+        layer.fillColor       = UIColor.clear.cgColor
+        layer.strokeColor     = self.progressColor.cgColor
         layer.lineWidth       = self._arcWidth/1.5
         return layer
     }()
     
     lazy private var _rotateLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.strokeColor = self.progressColor.CGColor
+        layer.strokeColor = self.progressColor.cgColor
         layer.lineWidth   = 1
-        layer.path        = self._rotatePath.CGPath
+        layer.path        = self._rotatePath.cgPath
         layer.frame       = self.bounds
         return layer
     }()
@@ -177,14 +166,14 @@ public class KYShutterButton: UIButton {
     private var _circlePath: UIBezierPath {
         let side = self.bounds.width - self._arcWidth*2 - self._arcMargin*2
         return UIBezierPath(
-            roundedRect: CGRectMake(bounds.width/2 - side/2, bounds.width/2 - side/2, side, side),
+            roundedRect: CGRect(x: bounds.width/2 - side/2, y: bounds.width/2 - side/2, width: side, height: side),
             cornerRadius: side/2
         )
     }
     
     private var _arcPath: UIBezierPath {
         return UIBezierPath(
-            arcCenter: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)),
+            arcCenter: CGPoint(x: self.bounds.midX, y: self.bounds.midY),
             radius: self.bounds.width/2 - self._arcWidth/2,
             startAngle: -CGFloat(M_PI_2),
             endAngle: CGFloat(M_PI*2.0) - CGFloat(M_PI_2),
@@ -195,15 +184,15 @@ public class KYShutterButton: UIButton {
     private var _roundRectPath: UIBezierPath {
         let side = bounds.width * 0.4242
         return UIBezierPath(
-            roundedRect: CGRectMake(bounds.width/2 - side/2, bounds.width/2 - side/2, side, side),
+            roundedRect: CGRect(x: bounds.width/2 - side/2, y: bounds.width/2 - side/2, width: side, height: side),
             cornerRadius: side * 0.107
         )
     }
     
     private var _rotatePath: UIBezierPath {
         let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(self.bounds.width/2, 0))
-        path.addLineToPoint(CGPointMake(self.bounds.width/2, self._arcWidth))
+        path.move(to: CGPoint(x: self.bounds.width/2, y: 0))
+        path.addLine(to: CGPoint(x: self.bounds.width/2, y: self._arcWidth))
         return path
     }
     
@@ -213,7 +202,7 @@ public class KYShutterButton: UIButton {
         var times = [CGFloat]()
         for i in 1...frameCount {
             let animationProgress = 1/CGFloat(frameCount) * CGFloat(i) - 0.01
-            paths.append(self.p_arcPathWithProgress(animationProgress, clockwise: false).CGPath)
+            paths.append(self.p_arcPathWithProgress(animationProgress, clockwise: false).cgPath)
             times.append(CGFloat(i)*0.1)
         }
         let animation         = CAKeyframeAnimation(keyPath: "path")
@@ -235,14 +224,14 @@ public class KYShutterButton: UIButton {
         var paths = [CGPath]()
         for i in 1...frameCount {
             let animationProgress = 1/CGFloat(frameCount) * CGFloat(i)
-            paths.append(self.p_arcPathWithProgress(animationProgress).CGPath)
+            paths.append(self.p_arcPathWithProgress(animationProgress).cgPath)
         }
         for i in 1...frameCount {
             let animationProgress = 1/CGFloat(frameCount) * CGFloat(i) - 0.01
-            paths.append(self.p_arcPathWithProgress(animationProgress, clockwise: false).CGPath)
+            paths.append(self.p_arcPathWithProgress(animationProgress, clockwise: false).cgPath)
         }
         let animation         = CAKeyframeAnimation(keyPath: "path")
-        animation.duration    = NSTimeInterval(rotateAnimateDuration*2)
+        animation.duration    = TimeInterval(rotateAnimateDuration*2)
         animation.values      = paths
         animation.beginTime   = CACurrentMediaTime() + _kstartAnimateDuration
         animation.repeatCount = Float.infinity
@@ -254,7 +243,7 @@ public class KYShutterButton: UIButton {
         let animation         = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue   = 0
         animation.toValue     = CGFloat(M_PI*2.0)
-        animation.duration    = NSTimeInterval(rotateAnimateDuration)
+        animation.duration    = TimeInterval(rotateAnimateDuration)
         animation.repeatCount = Float.infinity
         animation.beginTime   = CACurrentMediaTime() + _kstartAnimateDuration
         return animation
@@ -277,33 +266,33 @@ public class KYShutterButton: UIButton {
      /**************************************************************************/
     
     @objc
-    override public var highlighted: Bool {
+    override open var isHighlighted: Bool {
         didSet {
-            _circleLayer.opacity = highlighted ? 0.5 : 1.0
+            _circleLayer.opacity = isHighlighted ? 0.5 : 1.0
         }
     }
     
     @objc
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         if _arcLayer.superlayer != layer {
             layer.addSublayer(_arcLayer)
         } else {
-            _arcLayer.path      = _arcPath.CGPath
+            _arcLayer.path      = _arcPath.cgPath
             _arcLayer.lineWidth = _arcWidth
         }
         
         if _progressLayer.superlayer != layer {
             layer.addSublayer(_progressLayer)
         } else {
-            _progressLayer.path      = p_arcPathWithProgress(1).CGPath
+            _progressLayer.path      = p_arcPathWithProgress(1).cgPath
             _progressLayer.lineWidth = _arcWidth/1.5
         }
         
         if _rotateLayer.superlayer != layer {
-            layer.insertSublayer(_rotateLayer, atIndex: 0)
+            layer.insertSublayer(_rotateLayer, at: 0)
         } else {
-            _rotateLayer.path  = _rotatePath.CGPath
+            _rotateLayer.path  = _rotatePath.cgPath
             _rotateLayer.frame = self.bounds
         }
         
@@ -311,20 +300,22 @@ public class KYShutterButton: UIButton {
             layer.addSublayer(_circleLayer)
         } else {
             switch buttonState {
-            case .Normal:    _circleLayer.path = _circlePath.CGPath
-            case .Recording: _circleLayer.path = _roundRectPath.CGPath
+            case .normal:    _circleLayer.path = _circlePath.cgPath
+            case .recording: _circleLayer.path = _roundRectPath.cgPath
             }
         }
         
-        if shutterType == .TimeLapse && buttonState == .Recording {
+        if shutterType == .timeLapse && buttonState == .recording {
             p_removeTimeLapseAnimations()
             p_addTimeLapseAnimations()
         }
+        
+        updateLayers()
     }
     
     @objc
-    public override func setTitle(title: String?, forState state: UIControlState) {
-        super.setTitle("", forState: state)
+    open override func setTitle(_ title: String?, for state: UIControlState) {
+        super.setTitle("", for: state)
     }
     
     /**************************************************************************/
@@ -332,11 +323,11 @@ public class KYShutterButton: UIButton {
      /**************************************************************************/
     
     private func p_addTimeLapseAnimations() {
-        _progressLayer.addAnimation(_startProgressAnimation, forKey: "start-anim")
-        _rotateLayer.addAnimation(_startRotateAnimation, forKey: "rotate-anim")
-        _progressLayer.addAnimation(_recordingAnimation, forKey: "recording-anim")
-        _rotateLayer.addAnimation(_recordingRotateAnimation, forKey: "recordingRotate-anim")
-        _progressLayer.path = p_arcPathWithProgress(1.0).CGPath
+        _progressLayer.add(_startProgressAnimation, forKey: "start-anim")
+        _rotateLayer.add(_startRotateAnimation, forKey: "rotate-anim")
+        _progressLayer.add(_recordingAnimation, forKey: "recording-anim")
+        _rotateLayer.add(_recordingRotateAnimation, forKey: "recordingRotate-anim")
+        _progressLayer.path = p_arcPathWithProgress(1.0).cgPath
     }
     
     private func p_removeTimeLapseAnimations() {
@@ -344,7 +335,7 @@ public class KYShutterButton: UIButton {
         _rotateLayer.removeAllAnimations()
     }
     
-    private func p_arcPathWithProgress(progress: CGFloat, clockwise: Bool = true) -> UIBezierPath {
+    private func p_arcPathWithProgress(_ progress: CGFloat, clockwise: Bool = true) -> UIBezierPath {
         let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
         let startAngle = clockwise ?
             -CGFloat(M_PI_2) :
@@ -353,13 +344,31 @@ public class KYShutterButton: UIButton {
             CGFloat(M_PI*2.0)*progress - CGFloat(M_PI_2) :
             CGFloat(M_PI*2.0)*progress - CGFloat(M_PI_2) + CGFloat(M_PI)*(540/diameter)/180
         let path = UIBezierPath(
-            arcCenter: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)),
+            arcCenter: CGPoint(x: self.bounds.midX, y: self.bounds.midY),
             radius: self.bounds.width/2 - self._arcWidth/3,
             startAngle: startAngle,
             endAngle: endAngle,
             clockwise: clockwise
         )
         return path
+    }
+    
+    private func updateLayers() {
+        switch shutterType {
+        case .normal:
+            _arcLayer.lineDashPattern = nil
+            _progressLayer.isHidden     = true
+        case .slowMotion:
+            _arcLayer.lineDashPattern = [1, 1]
+            _progressLayer.isHidden     = true
+        case .timeLapse:
+            let diameter = CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/2)
+            let progressDiameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
+            
+            _arcLayer.lineDashPattern = [1, NSNumber(floatLiteral: (diameter/10 - 1).native)]
+            _progressLayer.lineDashPattern = [1, NSNumber(floatLiteral: (progressDiameter/60 - 1).native)]
+            _progressLayer.isHidden     = false
+        }
     }
     
 }

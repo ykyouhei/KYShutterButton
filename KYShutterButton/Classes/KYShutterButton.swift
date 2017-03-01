@@ -173,8 +173,8 @@ open class KYShutterButton: UIButton {
         return UIBezierPath(
             arcCenter: CGPoint(x: self.bounds.midX, y: self.bounds.midY),
             radius: self.bounds.width/2 - self._arcWidth/2,
-            startAngle: -CGFloat(M_PI_2),
-            endAngle: CGFloat(M_PI*2.0) - CGFloat(M_PI_2),
+            startAngle: -CGFloat.pi/2,
+            endAngle: CGFloat.pi*2 - CGFloat.pi/2,
             clockwise: true
         )
     }
@@ -212,7 +212,7 @@ open class KYShutterButton: UIButton {
     private var _startRotateAnimation: CABasicAnimation {
         let animation         = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.fromValue   = 0
-        animation.toValue     = CGFloat(M_PI*2.0)
+        animation.toValue     = CGFloat.pi*2
         animation.duration    = _kstartAnimateDuration
         return animation
     }
@@ -240,7 +240,7 @@ open class KYShutterButton: UIButton {
     private var _recordingRotateAnimation: CABasicAnimation {
         let animation         = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue   = 0
-        animation.toValue     = CGFloat(M_PI*2.0)
+        animation.toValue     = CGFloat.pi*2
         animation.duration    = TimeInterval(rotateAnimateDuration)
         animation.repeatCount = Float.infinity
         animation.beginTime   = CACurrentMediaTime() + _kstartAnimateDuration
@@ -334,13 +334,13 @@ open class KYShutterButton: UIButton {
     }
     
     private func p_arcPathWithProgress(_ progress: CGFloat, clockwise: Bool = true) -> UIBezierPath {
-        let diameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
+        let diameter = 2*CGFloat.pi*(self.bounds.width/2 - self._arcWidth/3)
         let startAngle = clockwise ?
-            -CGFloat(M_PI_2) :
-            -CGFloat(M_PI_2) + CGFloat(M_PI)*(540/diameter)/180
+            -CGFloat.pi/2 :
+            -CGFloat.pi/2 + CGFloat.pi*(540/diameter)/180
         let endAngle   = clockwise ?
-            CGFloat(M_PI*2.0)*progress - CGFloat(M_PI_2) :
-            CGFloat(M_PI*2.0)*progress - CGFloat(M_PI_2) + CGFloat(M_PI)*(540/diameter)/180
+            2*CGFloat.pi*progress - CGFloat.pi/2 :
+            2*CGFloat.pi*progress - CGFloat.pi/2 + CGFloat.pi*(540/diameter)/180
         let path = UIBezierPath(
             arcCenter: CGPoint(x: self.bounds.midX, y: self.bounds.midY),
             radius: self.bounds.width/2 - self._arcWidth/3,
@@ -360,8 +360,8 @@ open class KYShutterButton: UIButton {
             _arcLayer.lineDashPattern = [1, 1]
             _progressLayer.isHidden     = true
         case .timeLapse:
-            let diameter = CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/2)
-            let progressDiameter = 2*CGFloat(M_PI)*(self.bounds.width/2 - self._arcWidth/3)
+            let diameter = CGFloat.pi*(self.bounds.width/2 - self._arcWidth/2)
+            let progressDiameter = 2*CGFloat.pi*(self.bounds.width/2 - self._arcWidth/3)
             
             _arcLayer.lineDashPattern = [1, NSNumber(value: (diameter/10 - 1).native)]
             _progressLayer.lineDashPattern = [1, NSNumber(value: (progressDiameter/60 - 1).native)]

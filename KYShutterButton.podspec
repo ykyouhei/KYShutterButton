@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KYShutterButton"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "KYShutterButton is a custom button that is similar to the shutter button of the camera app"
   s.homepage     = "https://github.com/ykyouhei/KYShutterButton"
   s.license      = "MIT"

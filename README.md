@@ -4,7 +4,7 @@
 [![Pod Version](http://img.shields.io/cocoapods/v/KYShutterButton.svg?style=flat)](http://cocoadocs.org/docsets/KYShutterButton/) 
 [![Pod Platform](http://img.shields.io/cocoapods/p/KYShutterButton.svg?style=flat)](http://cocoadocs.org/docsets/KYShutterButton/)
 [![Pod License](http://img.shields.io/cocoapods/l/KYShutterButton.svg?style=flat)](https://github.com/ykyohei/KYShutterButton/blob/master/LICENSE) 
-![Swift version](https://img.shields.io/badge/swift-3.0-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-3.1-orange.svg)
 
 
 `KYShutterButton` is a custom button that is similar to the shutter button of the camera app

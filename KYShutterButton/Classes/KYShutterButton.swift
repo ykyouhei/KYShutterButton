@@ -233,7 +233,7 @@ open class KYShutterButton: UIButton {
         animation.values      = paths
         animation.beginTime   = CACurrentMediaTime() + _kstartAnimateDuration
         animation.repeatCount = Float.infinity
-        animation.calculationMode = kCAAnimationDiscrete
+        animation.calculationMode = CAAnimationCalculationMode.discrete
         return animation
     }
     
@@ -312,7 +312,7 @@ open class KYShutterButton: UIButton {
     }
     
     @objc
-    open override func setTitle(_ title: String?, for state: UIControlState) {
+    open override func setTitle(_ title: String?, for state: UIControl.State) {
         super.setTitle("", for: state)
     }
     
